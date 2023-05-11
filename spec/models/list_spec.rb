@@ -42,7 +42,7 @@ RSpec.describe "List", type: :model do
     expect(list.movies.count).to eq(1)
   end
 
-  it "should destroy child saved movies when destroying self" do
+  it "should destroy bookmarks when destroying self" do
     list = List.create!(valid_attributes)
     list.bookmarks.create(list: list, movie: titanic, comment: "Great movie!")
     expect { list.destroy }.to change { Bookmark.count }.from(1).to(0)
